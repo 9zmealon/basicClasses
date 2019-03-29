@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+            <form action="" method="GET">
+                    <input type="text" name="x">
+                    <input type="submit">
+            </form>
+    </div>
+
+    <div><ul></ul></div>
+    <script>
+        var recipe = new XMLHttpRequest();
+        document.querySelector('form').onsubmit = function(event){
+            event.preventDefault();
+            recipe.open('GET',"https://openwhyd.org/adrien?format=json");
+            recipe.send();
+        }
+        recipe.onreadystatechange = function(){
+            console.log('data',this.status);
+        }
+        
+    </script>
+</body>
+</html>

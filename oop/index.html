@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            position: relative;
+        }
+
+        #move {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background:red;
+            z-index: -1;
+            bottom: 0;
+            transition: all 0.2s linear;
+
+        }
+
+        #crt {
+            position: absolute;
+            transition: all 6s;
+        }
+
+        #cCC {
+            background: white;
+            transition: all 3s;
+        }
+
+        .left {
+            top: 0;
+            left: 0;
+        }
+
+        .right {
+            top: 0;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cCC">
+        <p>
+            <button onclick='addProduct(product1)'>addProduct1</button>
+            <button onclick='addProduct(product2)'>addProduct2</button>
+            <button onclick='addProduct(product3)'>addProduct3</button>
+        </p>
+        <hr>
+        <button onclick='cartStatus()'>cartStatus</button>
+
+        <button onclick="colorChange()" id="cC">changeColor</button>
+
+        <!-- <div id="mv">
+        <button onclick="move()">move</button>
+        </div> -->
+    </div>
+
+    <div id='move'>
+        <div id='crt'>
+            <p>cartlist</p>
+        </div>
+    </div>
+
+    <button>click</button>
+
+    <div>
+        <button>moveLeft</button>
+        <button>moveRight</button>
+        <!-- <button>movebottom</button>
+        <button>movecenter</button> -->
+    </div>
+
+
+    <script src="object.js"></script>
+</body>
+
+</html>

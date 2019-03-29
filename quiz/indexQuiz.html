@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .buttonClicked{
+        background: blue;
+    }
+    
+    </style>
+</head>
+<body>
+    <!-- <h1>Quiz</h1> -->
+    <div id="nextQuestion">
+        <button><h3>Start Quiz</h3></button>
+    </div>
+    <div id="question">
+
+    </div>
+    <div id="myScore">
+
+    </div>
+
+    <script>
+
+        class Question{
+            constructor(q,o,a){
+                this.question = q;
+                this.options = o;
+                this.answer = a;
+            }
+        }
+
+        //-------classQuestionList----------------------------------------------
+        class QuestionList{
+            constructor(){
+                this.arrQuestions = [];
+                this.answerList = [];
+                this.score = [];
+            }
+
+            scoredisplay(){
+                var scoreSum = 0;
+                for (let index = 0; index < this.answerList.length; index++) {
+                    if(this.answerList[index]==this.score[index])
+                    scoreSum++;
+                }
+                return scoreSum;
+            }
+            setData(q,o,a){
+                var x = new Question(q,o,a);
+                this.arrQuestions.push(x);
+                return this;
+            }
+
+            displayQuestion(index){
+                document.querySelector("div#question").innerHTML = "";
+                var div = document.createElement("div");
+
+                var paragraph = document.createElement("p");
+                paragraph.innerText = this.arrQuestions[index].question;
+
+
+                        //-------buttons
+                        var button1 = document.createElement("button");
+                                button1.setAttribute("onclick", `addScore(0)`);
+                                button1.innerText = this.arrQuestions[index].options[0];
+                            var button2 = document.createElement("button");
+                                    button2.setAttribute("onclick", `addScore(1)`);
+                                    button2.innerText = this.arrQuestions[index].options[1]
+                                var button3 = document.createElement("button");
+                                        button3.setAttribute("onclick", `addScore(2)`);
+                                        button3.innerText = this.arrQuestions[index].options[2]
+                                    var button4 = document.createElement("button");
+                                            button4.setAttribute("onclick", `addScore(3)`);
+                                            button4.innerText = this.arrQuestions[index].options[3]
+                //-------addpendProcess
+                div.appendChild(paragraph);
+                div.appendChild(button1);
+                div.appendChild(button2);
+                div.appendChild(button3);
+                div.appendChild(button4);
+                document.querySelector("div#question").appendChild(div);
+                return this;
+            }
+        }
+        //-------------------------------------------------------------------
+
+        //------managePlayerScore-------------------      
+            function addScore(index){
+                sample1.score.push(index);
+                document.querySelectorAll('button')[index+1].classList.add('buttonClicked')
+            }
+        //-------------------------------------------------------------------
+
+
+        //-------createdQuizQuestionList------------------------------------------------
+        var sample1 = new QuestionList();
+        sample1.setData("1.Book is to Reading as Fork is to:", ["A.drawing","B.writing","C.stirring","D.eating"],"D.eating");
+        sample1.setData("2.Which of the following can be arranged into a 5-letter English word?", ["A.H-R-G-S-T","B.R-I-L-S-A","C.T-O-O-Z-T","D.W-Q-R-G-S"],"B.R-I-L-S-A");
+
+        sample1.setData("3.Book is to Reading as Fork is to:", ["A.drawing","B.writing","C.stirring","D.eating"],"D.eating");
+        sample1.setData("4.Which of the following can be arranged into a 5-letter English word?", ["A.H-R-G-S-T","B.R-I-L-S-A","C.T-O-O-Z-T","D.W-Q-R-G-S"],"B.R-I-L-S-A");
+        
+        sample1.setData("5.Book is to Reading as Fork is to:", ["A.drawing","B.writing","C.stirring","D.eating"],"D.eating");
+        sample1.setData("6.Which of the following can be arranged into a 5-letter English word?", ["A.H-R-G-S-T","B.R-I-L-S-A","C.T-O-O-Z-T","D.W-Q-R-G-S"],"B.R-I-L-S-A");
+
+        sample1.setData("7.Book is to Reading as Fork is to:", ["A.drawing","B.writing","C.stirring","D.eating"],"D.eating");
+        sample1.setData("8.Which of the following can be arranged into a 5-letter English word?", ["A.H-R-G-S-T","B.R-I-L-S-A","C.T-O-O-Z-T","D.W-Q-R-G-S"],"B.R-I-L-S-A");
+
+        sample1.answerList = [3,1,3,1,3,1,3,1];
+        //--------------------------------------------------------------------------
+
+
+        //-------nextQuestion
+        var clickCount = 0;
+        document.querySelector("button").onclick = function(){
+            //-------nextQuestion
+            if(clickCount<sample1.arrQuestions.length){
+                document.querySelector("button").innerText="Next Question";
+                sample1.displayQuestion(clickCount);
+                clickCount++;
+            }
+
+             //-------startPage
+            else if(clickCount==(sample1.arrQuestions.length+1)){
+                document.querySelector("button").innerHTML="<h3>Start Quiz</h3>";
+                document.querySelector("div#question").innerHTML = "";
+                document.querySelector("div#myScore").innerHTML = '';
+                sample1.score = [];
+                clickCount = 0;
+            }
+            //-------scoreDisplay
+            else{
+                document.querySelector("div#question").innerHTML = "";
+                document.querySelector("button").innerText="Start A New Game";
+                document.querySelector("div#myScore").innerText = `Score : ${sample1.scoredisplay()}`;
+                clickCount=sample1.arrQuestions.length+1;//--------------------------------------------
+            }
+
+           
+        }
+    </script>
+</body>
+</html>

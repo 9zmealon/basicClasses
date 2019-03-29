@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form</title>
+    <style>
+    button{
+        background: gray;
+    }
+    #form{
+        background: white;
+        transition: all 3s;
+    }
+
+    .border{
+        font-size: 11px;
+    }
+    
+    /* .here{
+        transition: font-size 5s linear;
+    } */
+
+    .here .border{
+        font-size: 33px;
+    }
+    .here p{
+        font-size: 12px;
+        transition: font-size 5s linear;
+    }
+    </style>
+</head>
+<body>
+    <div id = 'form'>
+        <h1>REGISTRATION FORM</h1>
+        <form action="" method="POST">
+            <h3>Name</h3>
+            <p>
+                First : <input type="text" name="">
+                Last : <input type="text" name="">
+
+            </p>
+            <p>
+                Email : <input type="text" name="">
+            </p>
+            <p>
+                Personal Description : <textarea name="" id="description" cols="30" rows="4"></textarea>
+            </p>
+            <input type="Submit" value="Register">
+        </form>
+    </div>
+
+    <hr>
+
+    <div>
+        <h2>Question?</h2>
+        <p> 
+            <h2>Sum Of Input Data:
+            <button onclick = "sumOfNumber()"><h4>clickToInput</h4></button></h2>
+        </p>
+        <div class = 'cl1'></div>
+    </div>
+
+    <hr>
+
+    <div>
+        <button onclick = 'change()'>change</button>
+    </div>
+
+    <hr>
+<!-- ----------------------------------------------------------- -->
+    <div class="here">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem ad nihil consectetur a fugiat laboriosam rerum iusto, itaque, quibusdam, sapiente obcaecati mollitia ipsam autem cumque dolore consequuntur. Pariatur, dolore in!</p>
+    </div>
+
+    <hr>
+
+    <div>
+        <button onclick="addBorder()">border</button>
+        <button onclick="removeBorder()">border</button>
+    </div>
+<!-- ----------------------------------------------------------- -->
+    <script src="allFunctions.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="playerOne">
+            <p><h4>Player1</h4></p>
+            <div>
+                    Rolled Point:<p></p>
+                    Total Sum:<p></p>
+            </div>
+    </div>
+    
+    <div class="playerTwo">
+        <p><h4>Player2</h4></p>
+        <div>
+                Rolled Point:<p></p>
+                Total Sum:<p></p>
+        </div>
+    </div>
+
+    <button onclick="rollDice()"><h1>rollDice</h1></button>
+
+    <script>
+        var turn = 1;
+        var arrPlayer1 = [];
+        var arrPlayer2 = [];
+        function rollDice(){
+                if(turn==1){
+                    var temp = Math.floor(Math.random()*6)+1;
+                    console.log('player1',temp)
+                turn++;
+                }
+                
+                else{
+                    var temp = Math.floor(Math.random()*6)+1;
+                    console.log('player2',temp)
+
+                    turn--;
+                }
+        }
+        
+    </script>
+</body>
+</html>
